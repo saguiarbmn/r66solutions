@@ -37,3 +37,10 @@ npm run lint    # ESLint
 - Install is idempotent via `npm ci`
 - Dev server starts automatically in the `dev` terminal on port 3000
 - No secrets required for local/dev bootstrap; add dashboard secrets when integrations land
+
+## Cursor Cloud specific instructions
+
+- Dev server auto-starts on port 3000 (see `.cursor/environment.json`). Reuse the running `dev` terminal instead of starting a second `npm run dev`, which would fail/port-hop.
+- Next.js 16 runs on Turbopack for both `next dev` and `next build`; there is no separate webpack config to touch.
+- Verified working on Node 22. `npm audit` reports transitive vulnerabilities, but they do not block `npm run dev/build/lint` — no action needed for the current bootstrap.
+- Standard lint/test/build/run commands live in the `## Commands` section above; there are no automated tests yet.
